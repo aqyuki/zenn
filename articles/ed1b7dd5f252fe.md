@@ -27,8 +27,6 @@ go install golang.org/x/tools/cmd/gonew@latest
 
 とりあえず公式の用意しているテンプレートをもとに使ってみる。
 
-
-
 ```bash
 gonew golang.org/x/example/hello github.com/aqyuki/hello
 ```
@@ -56,8 +54,35 @@ go 1.19
 
 自動的にモジュール名が自動で変更されるのはいいですね。
 
+## 自分用の Go のテンプレートを作ってみた (2023/08/02 追記)
+
+以下のような構造でテンプレートを作ってみました。テンプレートを作るのはそんなに難しくなく、いつものように`go mod init`でプロジェクトを開始したあと`gonew`で作成したときに含めたいファイルを追加するだけでした。
+
+- cmd
+  - main.go
+- .editorconfig
+- .gitattributes
+- .gitignore
+- go.mod
+- Makefile
+- README.md
+- staticcheck.conf
+
+このリポジトリでは、
+```bash
+go mod init github.com/aqyuki/templatego
+```
+を実行し、Goのモジュール機能を初期化しているのですがこのリポジトリをもとに
+```bash
+gonew github.com/aqyuki/templatego <package name>
+```
+を実行しても問題なく`go.mod`のパッケージ名が上書きされていました。
+
+今回作成したテンプレートは[ここ](https://github.com/aqyuki/templatego)で公開しているので良ければ使ってみてください。
+
 # まとめ
 
 1. 今回公開されたのはあるリポジトリをもとに新しい Go プロジェクトを開始することのできる`gonew`というツール
 2. まだ、プロトタイプのためこれから仕様が変わっていく可能性がある
-3. 使ってみた感じ、かなり便利そう
+3. テンプレートを自分で作成してみたが特に苦労することもなく作成することができた。
+4. 使ってみた感じ、かなり便利そう
