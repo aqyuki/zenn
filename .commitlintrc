@@ -1,0 +1,13 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Zhengqbbb/cz-git/refs/tags/v1.13.2/docs/public/schema/cz-git.json",
+  "prompt": {
+    "scopes": [
+      "deps",
+      "article",
+      "book"
+    ],
+    "useEmoji": false,
+    "allowCustomScopes": false,
+    "allowEmptyScopes": true
+  }
+}
